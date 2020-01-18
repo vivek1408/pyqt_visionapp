@@ -1,19 +1,29 @@
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+from PyQt5 import QtCore, QtGui
 
-
-class SquareLabel(QLabel):
+class customObject(QObject):
+    click_signal = QtCore.pyqtSignal()
     def __init__(self, parent=None):
-        super(SquareLabel, self).__init__(parent)
+        super(customObject, self).__init__(parent)
+
+
+class customLabel(QLabel):
+    obj = customObject()
+    mouseclickcoorX = 0
+    mouseclickcoorY = 0
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.setAutoFillBackground(True)
         p = self.palette()
         p.setColor(self.backgroundRole(), QColor(223, 230, 248))
         self.setPalette(p)
         self.setMouseTracking(True)
 
-    def mouseMoveEvent(self, event):
-        print(event.pos().x(), event.pos().y())
-
     def mousePressEvent(self, event):
-        print(event)
+
+        self.mouseclickcoorX = event.pos().x()
+        self.mouseclickcoorY = event.pos().y()
+        print(self.mouseclickcoorX, self.mouseclickcoorY)
+        self.obj.click_signal.emit()
