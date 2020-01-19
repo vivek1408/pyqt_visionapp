@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ea91687-be7d-4c82-bbcf-4b91b9b7319a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/image_viewer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combine_widgets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_app_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scratch.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/show_cv2_video.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trial.ui" beforeDir="false" afterPath="$PROJECT_DIR$/trial.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/show_crop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/show_video.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_viewer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_window_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_window_setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,6 +18,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="start_application.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/start_application.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="pyqt_widget.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pyqt_widget.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,20 +66,8 @@
       <file leaf-file-name="image_viewer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/image_viewer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="start_application.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/start_application.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="275">
+              <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -75,10 +75,34 @@
       <file leaf-file-name="main_window_setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_window_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="99" column="64" selection-start-line="99" selection-start-column="64" selection-end-line="99" selection-end-column="64" />
+            <state relative-caret-position="507">
+              <caret line="129" column="44" lean-forward="true" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
               <folding>
                 <element signature="e#196#238#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show_video.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/show_video.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show_crop.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/show_crop.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,6 +124,7 @@
       <find>qimage</find>
       <find>400</find>
       <find>rect</find>
+      <find>click_hi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,13 +144,18 @@
         <option value="$PROJECT_DIR$/main_window_v2.py" />
         <option value="$PROJECT_DIR$/show_cv2_video.py" />
         <option value="$PROJECT_DIR$/start_application.py" />
+        <option value="$PROJECT_DIR$/img_preproc.py" />
+        <option value="$PROJECT_DIR$/image_viewer.py" />
+        <option value="$PROJECT_DIR$/show_video.py" />
+        <option value="$PROJECT_DIR$/main_window_setup.py" />
+        <option value="$PROJECT_DIR$/show_crop.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-38" />
-    <option name="y" value="76" />
-    <option name="width" value="1750" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="68" />
+    <option name="width" value="1098" />
     <option name="height" value="970" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -311,7 +341,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" weight="0.15625" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -361,16 +390,6 @@
           <caret line="90" column="38" selection-start-line="88" selection-start-column="8" selection-end-line="90" selection-end-column="38" />
           <folding>
             <element signature="e#194#212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyqt_widget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -426,29 +445,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_window_setup.py">
+    <entry file="file://$PROJECT_DIR$/pyqt_widget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="99" column="64" selection-start-line="99" selection-start-column="64" selection-end-line="99" selection-end-column="64" />
+        <state relative-caret-position="391">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
+            <element signature="e#1#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image_viewer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/start_application.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image_viewer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_video.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_window_setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="129" column="44" lean-forward="true" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+          <folding>
+            <element signature="e#196#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_crop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>

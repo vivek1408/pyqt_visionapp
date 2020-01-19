@@ -10,9 +10,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import image_viewer
 import cv2
+import show_video
+import show_crop
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
+        self.p1 = 0
+        self.p2 = 0
+        self.p3 = 0
+        self.p4 = 0
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1400, 1000)
         MainWindow.setWindowOpacity(10.0)
@@ -31,10 +38,10 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(300, 860, 151, 51))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.crop = QtWidgets.QWidget(self.centralwidget)
-        self.crop.setGeometry(QtCore.QRect(1030, 60, 351, 341))
-        self.crop.setAutoFillBackground(True)
-        self.crop.setObjectName("crop")
+        self.crop_viewer = image_viewer.ImageViewer(self.centralwidget)
+        self.crop_viewer.setGeometry(QtCore.QRect(1030, 60, 351, 341))
+        self.crop_viewer.setAutoFillBackground(True)
+        self.crop_viewer.setObjectName("cropViewer")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(1110, 10, 151, 31))
         font = QtGui.QFont()
@@ -82,13 +89,23 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.obj = image_viewer.ImageViewer.obj
 
         self.thread = QtCore.QThread()
         self.thread.start()
-        self.vid = ShowVideo()
+        self.vid = show_video.ShowVideo()
         self.vid.moveToThread(self.thread)
+
+        #SLOTS
         self.vid.VideoSignal.connect(self.ImageViewer.setImage)
+
+        self.obj.click_signal.connect(self.vid.cropstart)
         self.pushButton.clicked.connect(self.vid.startVideo)
+        #self.pushButton_2.clicked.connect(lambda: self.vid.cropstart(100, 100, 400, 400))
+        self.obj.click_signal.connect(self.cropstart)
+
+
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -105,32 +122,12 @@ class Ui_MainWindow(object):
         self.actionabout.setText(_translate("MainWindow", "about"))
 
 
-class ShowVideo(QtCore.QObject):
-        # initiating the built in camera
-        camera_port = 0
-        camera = cv2.VideoCapture(camera_port)
-        VideoSignal = QtCore.pyqtSignal(QtGui.QImage)
+    def cropstart(self, p1, p2, p3, p4):
 
-        def __init__(self, parent=None):
-            super(ShowVideo, self).__init__(parent)
+        self.thread2 = QtCore.QThread()
+        self.thread2.start()
+        self.crop = show_crop.ShowVideo(p1, p2, p3, p4)
+        self.crop.moveToThread(self.thread2)
+        self.crop.CropSignal.connect(self.crop_viewer.setImage)
 
-        @QtCore.pyqtSlot()
-        def startVideo(self):
-            run_video = True
-            while run_video:
-                ret, image = self.camera.read()
 
-                color_swapped_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-                height, width, _ = color_swapped_image.shape
-
-                qt_image = QtGui.QImage(color_swapped_image.data,
-                                        width,
-                                        height,
-                                        color_swapped_image.strides[0],
-                                        QtGui.QImage.Format_RGB888)
-
-                pixmap = QtGui.QPixmap(qt_image)
-                qt_image = pixmap.scaled(1000, 800, QtCore.Qt.KeepAspectRatio)
-                qt_image = QtGui.QImage(qt_image)
-
-                self.VideoSignal.emit(qt_image)
