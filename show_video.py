@@ -6,7 +6,7 @@ class ShowVideo(QtCore.QObject):
     camera_port = 0
     camera = cv2.VideoCapture(camera_port)
     VideoSignal = QtCore.pyqtSignal(QtGui.QImage)
-
+    imagemat = QtCore.pyqtSignal()
     def __init__(self, parent=None):
         super(ShowVideo, self).__init__(parent)
 
@@ -30,11 +30,11 @@ class ShowVideo(QtCore.QObject):
             qt_image = QtGui.QImage(qt_image)
 
             self.VideoSignal.emit(qt_image)
-
-    def cropstart(self, p1, p2, p3, p4):
-        self.cropflag = True
-        self.p1 = p1
-        self.p2 = p2
-        self.p3 = p3
-        self.p4 = p4
-        print("points", p1, p2, p3, p4)
+            self.imagemat.emit(image)
+    # def cropstart(self, p1, p2, p3, p4):
+    #     self.cropflag = True
+    #     self.p1 = p1
+    #     self.p2 = p2
+    #     self.p3 = p3
+    #     self.p4 = p4
+    #     print("points", p1, p2, p3, p4)

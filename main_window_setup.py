@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import image_viewer
 import cv2
 import show_video
-import show_crop
+import crop_viewer
 
 class Ui_MainWindow(object):
 
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(300, 860, 151, 51))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.crop_viewer = image_viewer.ImageViewer(self.centralwidget)
+        self.crop_viewer = crop_viewer.CropViewer(self.centralwidget)
         self.crop_viewer.setGeometry(QtCore.QRect(1030, 60, 351, 341))
         self.crop_viewer.setAutoFillBackground(True)
         self.crop_viewer.setObjectName("cropViewer")
@@ -95,17 +95,13 @@ class Ui_MainWindow(object):
         self.thread.start()
         self.vid = show_video.ShowVideo()
         self.vid.moveToThread(self.thread)
-
+        self.thread2 = QtCore.QThread()
+        self.thread2.start()
         #SLOTS
         self.vid.VideoSignal.connect(self.ImageViewer.setImage)
-
-        self.obj.click_signal.connect(self.vid.cropstart)
+        self.vid.imagemat.connect(self.ImageViewer.crop_image)
         self.pushButton.clicked.connect(self.vid.startVideo)
-        #self.pushButton_2.clicked.connect(lambda: self.vid.cropstart(100, 100, 400, 400))
-        self.obj.click_signal.connect(self.cropstart)
-
-
-
+        #self.obj.crop_signal.connect(self.crop_viewer.setImage)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -123,11 +119,7 @@ class Ui_MainWindow(object):
 
 
     def cropstart(self, p1, p2, p3, p4):
+        print("in cropstart func")
 
-        self.thread2 = QtCore.QThread()
-        self.thread2.start()
-        self.crop = show_crop.ShowVideo(p1, p2, p3, p4)
-        self.crop.moveToThread(self.thread2)
-        self.crop.CropSignal.connect(self.crop_viewer.setImage)
 
 
